@@ -1,6 +1,6 @@
 # Angular PowerBI Report
 
-This Library helps to integrate Power BI reports to Angular application.
+This Library helps to integrate Power BI reports to Angular application. Library provide component to automatically fetch token and display report.
 
 ## Installation
 
@@ -22,19 +22,33 @@ import { PowerBiReportModule } from 'powerbi-report';
   bootstrap: []
 })
 ```
+Call the Report component from the application component .html file (eg: app.component.html) as below.
+```
+<power-bi-report
+    [reportConfig]="reportConfig"
+    [reportStyle]="reportStyle">
+</power-bi-report>
+```
+Also initialize the parameters in the .ts file (eg:app.component.ts) as below
+```
+import { ReportConfig } from 'power-bi-report-lib/public-api';
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'adient-library';
+  reportConfig: ReportConfig = {
+    powerbiTokenUrl : 'your token url',
+    workspaceId : 'workspace id of the report',
+    reportId : 'report id that need to display'
+  }
+  reportStyle = {
+    width: "100%",
+    height: "600px"
+  }
+}
+```
+`reportConfig` is mandatory for displaying the report. `reportStyle` is to configure the appearance of report(support all the general css styling attributes).
