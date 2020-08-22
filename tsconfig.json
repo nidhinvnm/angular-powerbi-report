@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "powerbi-report": [
+        "dist/powerbi-report"
+      ],
+      "powerbi-report/*": [
+        "dist/powerbi-report/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
