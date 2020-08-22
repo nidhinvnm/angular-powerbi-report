@@ -1,14 +1,27 @@
-# LibraryWorkspace
+# Angular PowerBI Report
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.26.
+This Library helps to integrate Power BI reports to Angular application.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm i angular-powerbi-report` to install the package from NPM registry.
 
-## Code scaffolding
+## Usage
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Import report module in the application module (eg: `app.module.ts`) as below
+```
+import { PowerBiReportModule } from 'powerbi-report';
+
+@NgModule({
+    declarations: [
+  ],
+  imports: [
+    PowerBiReportModule
+  ],
+  providers: [],
+  bootstrap: []
+})
+```
 
 ## Build
 
