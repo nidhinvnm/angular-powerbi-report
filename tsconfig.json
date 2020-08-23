@@ -21,9 +21,6 @@
     "paths": {
       "powerbi-report": [
         "dist/powerbi-report"
-      ],
-      "powerbi-report/*": [
-        "dist/powerbi-report/*"
       ]
     }
   },

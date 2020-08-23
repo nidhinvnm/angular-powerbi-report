@@ -1,6 +1,17 @@
 {
-  "name": "powerbi-report",
-  "version": "0.0.1",
+  "name": "angular-powerbi-report",
+  "version": "1.0.0-beta.0",
+  "description": "This Library helps to integrate Power BI reports to Angular application. Library provide component to automatically fetch token and display report.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nidhinvnm/angular-powerbi-report.git"
+  },
+  "keywords": ["angular", "powerbi", "report"],
+  "author": "Nidhin Vijay <nidhinvnm@gmail.com>",
+  "license": "ISC",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14",

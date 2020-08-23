@@ -11,4 +11,4 @@ import { ReportComponent } from './report/report.component';
   ],
   exports: [ReportComponent]
 })
-export class PowerBiReportLibModule { }
+export class PowerBiReportModule { }

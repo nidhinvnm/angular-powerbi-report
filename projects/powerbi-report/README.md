@@ -1,24 +1,56 @@
-# PowerbiReport
+# Angular PowerBI Report
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
+This Library helps to integrate Power BI reports to Angular application. Library provide component to automatically fetch token and display report.
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name --project powerbi-report` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project powerbi-report`.
-> Note: Don't forget to add `--project powerbi-report` or else it will be added to the default project in your `angular.json` file. 
+Run `npm i angular-powerbi-report` to install the package from NPM registry.
 
-## Build
+## Usage
 
-Run `ng build powerbi-report` to build the project. The build artifacts will be stored in the `dist/` directory.
+Import `PowerBiReportModule, HttpClientModule` in the application module (eg: `app.module.ts`) as below
+```
+import { PowerBiReportModule } from 'powerbi-report';
+import { HttpClientModule } from '@angular/common/http';
 
-## Publishing
+@NgModule({
+    declarations: [
+      AppComponent
+  ],
+  imports: [
+    PowerBiReportModule,
+    HttpClientModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+```
+Call the Report component from the application component .html file (eg: app.component.html) as below.
+```
+<pbi-report
+    [reportConfig]="reportConfig"
+    [reportStyle]="reportStyle">
+</pbi-report>
+```
+Also initialize the parameters in the .ts file (eg:app.component.ts) as below
+```
+import { ReportConfig } from 'power-bi-report-lib/public-api';
 
-After building your library with `ng build powerbi-report`, go to the dist folder `cd dist/powerbi-report` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test powerbi-report` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  reportConfig: ReportConfig = {
+    powerbiTokenUrl : 'your token url',
+    workspaceId : 'workspace id of the report',
+    reportId : 'report id that need to display'
+  }
+  reportStyle = {
+    width: "100%",
+    height: "600px"
+  }
+}
+```
+`reportConfig` is mandatory for displaying the report. `reportStyle` is to configure the appearance of report(support all the general css styling attributes).
